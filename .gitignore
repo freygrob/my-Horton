@@ -11,4 +11,3 @@ packer.log
 .kitchen
 bento/
 packer/
-vagrant/
