@@ -29,7 +29,7 @@ https://www.packer.io/downloads.html
 
     PS my-Horton> .\build_box.ps1
 
-## How-To Create VM
+## How-To Create VM with Vagrant
 
 Make sure you have installed VirtualBox, Vagrant, and 'vagrant' executable is in your path.
 
@@ -37,11 +37,20 @@ You -still- are in "my-Horton" directory.
 
 ### my-Ambari
 
-1) **Optional** Clone repository 'my-Ambari' in 'vagrant' folder :
+1) (**Optional**) Clone repository 'my-Ambari' in 'vagrant' folder :
 
     PS my-Horton> git clone https://github.com/my-Horton/my-Ambari.git vagrant/my-Ambari
 
 2) Build 'my-Ambari' VM :
 
     PS my-Horton> .\build_vm.ps1 my-Ambari
+ or simply
+    PS my-Horton> .\build_vm.ps1
 
+## How-To Add/Start Dockers
+
+### my-Ambari
+
+You have to build my-Ambari VM first (see above).
+
+...
