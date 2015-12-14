@@ -12,12 +12,16 @@ if ($PSScriptRoot -eq $null) {
 . "$PSScriptRoot\config.ps1"
 
 # Vagrant
-cd "$PSScriptRoot\vagrant\$vm"
+if (! Test-Path "$PSScriptRoot\vagrant\$vm\Vagrantfile") {
+    Write-Host "Cloning $vm..."
+    git clone https://github.com/my-Horton/$($vm).git "$PSScriptRoot\vagrant\$vm"
+}
 
-Write-Host "Building $vm..."
+cd "$PSScriptRoot\vagrant\$vm"
 
 vagrant box add centos-$($centos) "$PSScriptRoot\bento\builds\centos-$($centos)-$($arch)-minimal.$($provider).box"
 
+Write-Host "Building $vm..."
 vagrant up
 
 cd "$PSScriptRoot"
