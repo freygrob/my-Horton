@@ -1,4 +1,8 @@
 
+Param {
+    [string]$vm = "my-Ambari"
+}
+
 # Script Directory
 if ($PSScriptRoot -eq $null) {
     $PSScriptRoot = [System.IO.Path]::GetDirectoryName($myInvocation.MyCommand.Definition)
@@ -8,9 +12,11 @@ if ($PSScriptRoot -eq $null) {
 . "$PSScriptRoot\config.ps1"
 
 # Vagrant
-cd "$PSScriptRoot\vagrant"
+cd "$PSScriptRoot\vagrant\$vm"
 
-vagrant box add centos-$($centos) $PSScriptRoot\bento\builds\centos-$($centos)-$($arch)-minimal.$($provider).box
+Write-Host "Building $vm..."
+
+vagrant box add centos-$($centos) "$PSScriptRoot\bento\builds\centos-$($centos)-$($arch)-minimal.$($provider).box"
 
 vagrant up
 
