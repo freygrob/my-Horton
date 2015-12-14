@@ -5,7 +5,7 @@ if ($PSScriptRoot -eq $null) {
 }
 
 # Configuration
-. $PSScriptRoot\config.ps1
+. "$PSScriptRoot\config.ps1"
 
 # CentOS Mirror
 $mirrorurl="http://isoredirect.centos.org/centos/$($centos)/isos/$($arch)/"
@@ -17,10 +17,12 @@ $mirrorurl=$mirrorlist[0].href
 $keyboard=(Get-Culture).Name
 
 # Bento/Packer
-cd $PSScriptRoot\bento
+cd "$PSScriptRoot\bento"
 
-$PSScriptRoot\packer\packer.exe build -only="$($provider)-iso" -var "keyboard=$($keyboard)" -var "mirror=$($mirrorurl)" -var "mirror_directory=''" centos-$($centos)-$($arch)-minimal.json
+& "$PSScriptRoot\packer\packer.exe" build -only="$($provider)-iso" -var "keyboard=$($keyboard)" -var "mirror=$($mirrorurl)" -var "mirror_directory=" centos-$($centos)-$($arch)-minimal.json
 
-cd $PSScriptRoot
+cd "$PSScriptRoot"
 
-Read-Host "<Press Enter>"
+if ($Host.Name -eq "ConsoleHost") {
+    Read-Host "<Press Enter>"
+}

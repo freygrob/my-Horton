@@ -9,3 +9,6 @@ packer.log
 *.variables.json
 /builds/
 .kitchen
+bento/
+packer/
+vagrant/
