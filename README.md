@@ -1,7 +1,8 @@
 # my-Horton
 HortonWorks(r) Hadoop distribution with Docker in Vagrant Box 
 
-!! Tested only with VirtualBox on Windows !!
+**!! Tested only with VirtualBox on Windows !!**
+
 
 ## Prerequisites
 
@@ -9,6 +10,7 @@ HortonWorks(r) Hadoop distribution with Docker in Vagrant Box
 - [Packer](https://www.packer.io/downloads.html)
 - [Vagrant](https://www.vagrantup.com/downloads.html)
 - [Git](https://git-scm.com/downloads)
+
 
 ## How-To Build Box
 
@@ -29,13 +31,20 @@ https://www.packer.io/downloads.html
 
     PS my-Horton> .\build_box.ps1
 
+
 ## How-To Create VM with Vagrant
 
 Make sure you have installed VirtualBox, Vagrant, and 'vagrant' executable is in your path.
 
-You -still- are in "my-Horton" directory.
+You are -still- in "my-Horton" directory.
 
 ### my-Ambari
+
+Simplest way:
+
+    PS my-Horton> .\build_vm.ps1
+
+In detail:
 
 1) (**Optional**) Clone repository 'my-Ambari' in 'vagrant' folder :
 
@@ -44,8 +53,7 @@ You -still- are in "my-Horton" directory.
 2) Build 'my-Ambari' VM :
 
     PS my-Horton> .\build_vm.ps1 my-Ambari
- or simply
-    PS my-Horton> .\build_vm.ps1
+
 
 ## How-To Add/Start Dockers
 
