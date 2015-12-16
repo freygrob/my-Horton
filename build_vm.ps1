@@ -1,7 +1,7 @@
 
-Param {
+Param (
     [string]$vm = "my-Ambari"
-}
+)
 
 # Script Directory
 if ($PSScriptRoot -eq $null) {
@@ -12,7 +12,7 @@ if ($PSScriptRoot -eq $null) {
 . "$PSScriptRoot\config.ps1"
 
 # Vagrant
-if (! Test-Path "$PSScriptRoot\vagrant\$vm\Vagrantfile") {
+if (! (Test-Path "$PSScriptRoot\vagrant\$vm\Vagrantfile")) {
     Write-Host "Cloning $vm..."
     git clone https://github.com/my-Horton/$($vm).git "$PSScriptRoot\vagrant\$vm"
 }

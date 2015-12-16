@@ -1,7 +1,7 @@
 
-Param {
+Param (
     [string]$vm = "my-Ambari"
-}
+)
 
 # Script Directory
 if ($PSScriptRoot -eq $null) {
