@@ -1,7 +1,7 @@
 # my-Horton
 HortonWorks(r) Hadoop distribution with Docker in Vagrant Box 
 
-**!! Tested only with VirtualBox on Windows !!**
+**!! Only tested with VirtualBox on Windows !!**
 
 
 ## Prerequisites
